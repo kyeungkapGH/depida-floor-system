@@ -1,0 +1,69 @@
+/* 기본 리셋 스타일 */
+
+
+        /* [4] 푸터 */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        .depida-card {
+            background: #fff;
+            border: 1px solid #e8e1d8;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            order: calc(-1 * var(--card-index, 0));
+        }
+
+        .depida-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        /* 카드 텍스트 레이아웃 공통화 */
+        .depida-card-label {
+            font-size: 0.85rem;
+            color: #9b7b58;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .depida-card-title {
+            font-size: 1.35rem;
+            line-height: 1.4;
+            color: #111;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+        }
+
+        .depida-card-info p {
+            margin: 0 0 6px 0;
+            font-size: 0.93rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .depida-card-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .depida-card-info span {
+            color: #111;
+            font-weight: 600;
+            display: inline-block;
+            width: 70px;
+        }
+
+        .depida-card-more {
+            margin-top: 28px;
+            font-size: 0.9rem;
+            color: #9b7b58;
+            font-weight: 600;
+            border-top: 1px dashed #e8e1d8;
+            padding-top: 16px;
+        }

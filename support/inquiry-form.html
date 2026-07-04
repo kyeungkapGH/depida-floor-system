@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공간을 데우다, 마음을 DEPIDA</title>
+    <style>
+        /* 기본 리셋 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* [1] 헤더 & 상단 네비게이션바 */
+        header {
+            background-color: #333;
+            color: #fff;
+            position: relative;
+            /* 드롭다운의 기준점이 됩니다 */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
+            max-width: 1200px;
+            /* 전체 중앙 정렬을 원할 경우 사용 */
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links>li {
+            padding: 15px 0;
+        }
+
+        /* [2] 가로형 드롭다운 메뉴 스타일 (수정됨) */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            /* 헤더 바로 아래 붙음 */
+            left: 0;
+            width: 100%;
+            /* 화면 전체 가로 너비 */
+            background-color: #444;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            padding: 10px 0;
+            text-align: center;
+            /* 메뉴 내용 중앙 정렬 */
+        }
+
+        /* 서브메뉴 항목들을 가로로 나열 */
+        .dropdown-menu li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .dropdown-menu li a:hover {
+            color: #fff;
+            background-color: transparent;
+        }
+
+        .dropdown.show .dropdown-menu {
+            display: block;
+        }
+
+        /* [3] 중앙 레이아웃 */
+        .container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        main {
+            flex: 3;
+            padding: 20px 20px;
+            background-color: #f9f9f9;
+        }
+
+        aside {
+            flex: 1;
+            padding: 40px 20px;
+            background-color: #f0f0f0;
+            border-left: 1px solid #ddd;
+        }
+
+        /* [4] 푸터 */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+         <nav class="navbar">
+            <div class="logo">
+               <a href="/">
+                  <h2>DEPIDA</h2>
+               </a>
+            </div>
+            <button class="menu-toggle" aria-label="메뉴 열기">
+            <span></span>
+            <span></span>
+            <span></span>
+            </button>
+            <ul class="nav-links">
+               <li class="dropdown">
+                  <a href="../about/" class="dropdown-toggle">회사소개</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="../about/">DEPIDA 소개</a></li>
+                     <li><a href="../about/brand-story.html">브랜드 스토리</a></li>
+                     <li><a href="../about/vision.html">기업 이념/비전</a></li>
+                     <li><a href="../about/certificates.html">특허 및 인증</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown">
+                  <a href="../solutions/" class="dropdown-toggle">솔루션소개</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="../solutions/">왜 DEPIDA인가요?</a></li>
+                     <li><a href="../solutions/solution-cozy.html">DEPIDA COZY</a></li>
+                     <li><a href="../solutions/solution-stay.html">DEPIDA STAY</a></li>
+                     <li><a href="../solutions/solution-spa.html">DEPIDA SPA</a></li>
+                     <li><a href="../solutions/solution-pro.html">DEPIDA PRO</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown">
+                  <a href="../cases/" class="dropdown-toggle">시공사례</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="../cases/installation-method.html">시공방법</a></li>
+                     <li><a href="../cases/cases-pension.html">풀빌라ㆍ펜션</a></li>
+                     <li><a href="../cases/cases-hotel.html">호텔ㆍ리조트</a></li>
+                     <li><a href="../cases/cases-spa.html">찜질방ㆍ사우나</a></li>
+                     <li><a href="../cases/cases-public.html">관공서ㆍ기타 상업시설</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown">
+                  <a href="../support/" class="dropdown-toggle">고객지원</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="../support/manuals.html">제품설명서</a></li>
+                     <li><a href="../support/faq.html">자가진단 FAQ</a></li>
+                     <li><a href="../support/index.html">A/S 신청</a></li>
+                     <li><a href="../support/inquiry.html">견적 문의</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </nav>
+      </header>
+
+    <div class="container">
+        <main style="
+    max-width:1200px;
+    margin:0 auto;
+    padding:120px 32px;
+    font-family:sans-serif;
+    color:#333;
+">
+    <!-- 타이틀 섹션 -->
+    <section style="margin-bottom:90px;">
+
+        <p style="
+            font-size:0.95rem;
+            letter-spacing:0.08em;
+            color:#9b7b58;
+            margin-bottom:18px;
+            font-weight:600;
+        ">
+            ESTIMATE INQUIRY
+        </p>
+
+        <h1 style="
+            font-size:3rem;
+            font-weight:700;
+            line-height:1.35;
+            color:#111;
+            margin-bottom:35px;
+        ">
+            고객님의 공간에 맞는<br>
+            최적의 난방 솔루션 비용을 산출해 드립니다
+        </h1>
+
+        <div style="
+            width:100px;
+            height:2px;
+            background:#c49a6c;
+            margin-bottom:45px;
+        "></div>
+
+        <p style="
+            font-size:1.08rem;
+            line-height:2;
+            color:#555;
+            max-width:880px;
+            word-break:keep-all;
+        ">
+            현장 도면 유무, 시공 면적, 바닥 마감재 종류에 따라 맞춤형 상세 견적이 가능합니다.
+            <br><br>
+            기본적인 정보를 아래 폼에 입력하여 제출해 주시면, 담당 부서에서 내용을 검토한 후 24시간 이내(영업일 기준)에 유선 연락 또는 견적서를 송부해 드리겠습니다.
+        </p>
+
+    </section>
+
+    <!-- 견적 문의 폼 영역 -->
+    <section style="
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #e8e1d8;
+        padding: 60px 50px;
+    ">
+        <form action="#" method="POST" onsubmit="alert('견적 문의가 정상적으로 접수되었습니다. 빠르게 연락드리겠습니다.'); return false;">
+            
+            <!-- 1. 기본 정보 그룹 -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 25px; border-left: 3px solid #c49a6c; padding-left: 12px;">
+                    기본 인적 사항
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                    <!-- 이름/회사명 -->
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">성함 / 업체명 *</label>
+                        <input type="text" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                    </div>
+                    <!-- 연락처 -->
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">연락처 *</label>
+                        <input type="tel" placeholder="010-0000-0000" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                    </div>
+                </div>
+
+                <div style="margin-top: 24px;">
+                    <!-- 이메일 -->
+                    <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">이메일 주소 *</label>
+                    <input type="email" placeholder="example@email.com" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                </div>
+            </div>
+
+            <!-- 2. 시공 현장 정보 그룹 -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 25px; border-left: 3px solid #c49a6c; padding-left: 12px;">
+                    시공 현장 정보
+                </h3>
+
+                <div style="margin-bottom: 24px;">
+                    <!-- 현장 주소 -->
+                    <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">시공 예정지 주소 *</label>
+                    <input type="text" placeholder="예: 서울시 강남구 또는 대략적인 지역" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                    <!-- 시공 면적 -->
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">시공 예정 면적 (평 또는 ㎡) *</label>
+                        <input type="text" placeholder="예: 30평형 / 100㎡" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                    </div>
+                    <!-- 마감재 선택 -->
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">예정된 바닥 마감재</label>
+                        <select style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; color:#555; box-sizing: border-box; outline: none; background:#fff;">
+                            <option value="">선택해 주세요</option>
+                            <option value="강마루/강화마루">강마루 / 강화마루</option>
+                            <option value="데코타일/SPC마루">데코타일 / SPC마루</option>
+                            <option value="타일/대리석">타일 / 대리석</option>
+                            <option value="기타/미정">기타 / 미정</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 상세 문의 내용 -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 25px; border-left: 3px solid #c49a6c; padding-left: 12px;">
+                    문의 사항 및 특이사항
+                </h3>
+                <div>
+                    <textarea rows="6" placeholder="현장 층수, 도면 보유 여부, 기존 바닥 상태 등 참고할 만한 내용을 자유롭게 작성해 주세요." style="width: 100%; padding: 16px; border: 1px solid #ddd; font-size: 0.95rem; font-family: sans-serif; box-sizing: border-box; outline: none; resize: vertical; line-height: 1.6;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'"></textarea>
+                </div>
+            </div>
+
+            <!-- 4. 개인정보 수의동의 및 제출 -->
+            <div style="margin-bottom: 45px; background: #fcfbf9; padding: 20px; border: 1px solid #f4efe9;">
+                <label style="display: flex; align-items: center; cursor: pointer; font-size: 0.9rem; color: #555;">
+                    <input type="checkbox" required style="margin-right: 10px; width: 16px; height: 16px; accent-color: #9b7b58;">
+                    <span>(필수) 견적 상담을 위한 개인정보 수집 및 이용에 동의합니다.</span>
+                </label>
+            </div>
+
+            <!-- 제출 버튼 -->
+            <button type="submit" style="
+                width: 100%;
+                background: #9b7b58;
+                color: #fff;
+                font-weight: 700;
+                font-size: 1.1rem;
+                padding: 22px;
+                border: none;
+                cursor: pointer;
+                transition: background 0.3s;
+            "
+            onmouseover="this.style.background='#826547';"
+            onmouseout="this.style.background='#9b7b58';">
+                온라인 견적 문의 신청하기
+            </button>
+
+        </form>
+    </section>
+</main>
+
+        <!--
+        <aside>
+            <h3>사이드바</h3>
+            <ul style="margin-top: 15px;">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">문의하기</a></li>
+            </ul>
+        </aside>
+        -->
+    </div>
+    <footer>
+        <p>&copy; 2026 DEPIDA. All rights reserved.</p>
+    </footer>
+
+</body>
+
+<script>
+    // 1. 클릭할 상위 메뉴(대메뉴)들을 모두 찾습니다.
+    document.querySelectorAll('.dropdown > a').forEach(function(menuLink) {
+        
+        // 2. 메뉴를 클릭했을 때 실행할 행동
+        menuLink.addEventListener('click', function(e) {
+            e.preventDefault();  // 클릭했을 때 페이지가 위로 튕기는 현상 방지
+            e.stopPropagation(); // 클릭 이벤트가 다른 데로 퍼지는 것 방지
+            
+            const currentDropdown = this.parentElement; // 클릭한 메뉴의 부모(.dropdown)
+            
+            // 3. 이미 열려있는 다른 메뉴가 있다면 모두 닫기
+            document.querySelectorAll('.dropdown').forEach(function(item) {
+                if (item !== currentDropdown) {
+                    item.classList.remove('show');
+                }
+            });
+            
+            // 4. 내가 클릭한 메뉴에 'show' 이름표를 붙였다 뗐다 하기 (토글)
+            currentDropdown.classList.toggle('show');
+        });
+    });
+
+    // 5. 메뉴 바깥쪽의 빈 화면을 클릭하면 열려있던 메뉴 자동으로 닫기
+    document.addEventListener('click', function() {
+        document.querySelectorAll('.dropdown').forEach(function(item) {
+            item.classList.remove('show');
+        });
+    });
+</script>
+
+</html>
