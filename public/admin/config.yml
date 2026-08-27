@@ -1,0 +1,63 @@
+# Sveltia CMS 설정 (Decap CMS 호환 문법)
+# 편집자는 /admin/ 에서 GitHub 로그인 후 폼으로 시공사례를 추가/수정합니다.
+
+backend:
+  name: github
+  # ⚠️ kinetic 사이트를 실제로 배포/커밋할 GitHub 저장소로 맞춰야 합니다.
+  repo: kyeungkapGH/depida-floor-system
+  branch: astro-cms
+
+# 이미지 업로드 위치 (저장소 기준 실제 경로 / 사이트에서 참조할 URL)
+media_folder: "public/assets/images/cases"
+public_folder: "/assets/images/cases"
+
+# 한국어 UI
+locale: ko
+
+collections:
+  - name: cases
+    label: 시공사례
+    label_singular: 시공사례 카테고리
+    description: 카테고리(펜션/호텔/스파/관공서)별 페이지. 각 카테고리 안에서 개별 사례를 추가합니다.
+    folder: src/content/cases
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    slug: "{{fields.order}}-{{slug}}"
+    identifier_field: heading
+    fields:
+      - { name: title, label: "SEO 제목 (브라우저 탭)", widget: string }
+      - { name: seoDescription, label: "SEO 설명 문구", widget: text }
+      - { name: keywords, label: "검색 키워드 (쉼표로 구분)", widget: string, required: false }
+      - { name: ogImage, label: "공유 이미지 URL", widget: string, required: false }
+      - { name: order, label: "정렬 순서 (작을수록 앞)", widget: number, default: 0, value_type: int }
+      - { name: label, label: "상단 소제목 (예: PORTFOLIO / LINE-UP 03)", widget: string }
+      - { name: heading, label: "큰 제목", widget: string }
+      - { name: intro, label: "소개 문단", widget: text }
+      - name: features
+        label: "특징 카드"
+        label_singular: 특징
+        widget: list
+        collapsed: true
+        fields:
+          - { name: title, label: 제목, widget: string }
+          - { name: body, label: 설명, widget: text }
+      - name: items
+        label: "시공사례 목록"
+        label_singular: 사례
+        widget: list
+        summary: "{{fields.title}}"
+        collapsed: true
+        fields:
+          - { name: label, label: 라벨, widget: string, default: CASE }
+          - { name: title, label: "현장 이름", widget: string }
+          - { name: image, label: "대표 이미지", widget: image }
+          - { name: date, label: 시공일자, widget: string, required: false }
+          - { name: address, label: 주소, widget: string, required: false }
+          - { name: scale, label: 시공규모, widget: string, required: false }
+          - { name: note, label: 주요특징, widget: text, required: false }
+          - name: gallery
+            label: "갤러리 이미지"
+            widget: list
+            required: false
+            field: { name: image, label: 이미지, widget: image }

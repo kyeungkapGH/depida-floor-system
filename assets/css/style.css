@@ -854,9 +854,9 @@ header {
     color: var(--color-gray-3);
 }
 
-/* ==========================================
-   [신규 추가] 시공 프로세스 타임라인 스타일
-   ========================================== */
+/* ==========================================================================
+   TIMELINE — 시공 프로세스
+   ========================================================================== */
 
 .timeline-wrap {
     position: relative;
@@ -997,19 +997,6 @@ header {
 }
 
 /* 모바일 화면 최적화 (반응형 디테일 수정) */
-@media (max-width: 768px) {
-    .timeline-wrap {
-        padding-left: 10px;
-    }
-    .timeline-content {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .wide-img-box.spec-photo,
-    .wide-img-box.spec-blueprint {
-        height: 250px; /* 모바일에서는 높이를 줄여 한눈에 들어오게 조절 */
-    }
-}
 
 /* ==========================================================================
    FOOTER
@@ -1119,7 +1106,23 @@ footer {
     }
 }
 
+/* ==========================================================================
+   RESPONSIVE — max-width: 768px
+   ========================================================================== */
 @media (max-width: 768px) {
+
+    .timeline-wrap {
+        padding-left: 10px;
+    }
+    .timeline-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .wide-img-box.spec-photo,
+    .wide-img-box.spec-blueprint {
+        height: 250px; /* 모바일에서는 높이를 줄여 한눈에 들어오게 조절 */
+    }
+
 
     .section {
         padding: 80px 0;
@@ -1282,12 +1285,7 @@ footer {
         flex-direction: column;
         gap: 40px;
     }
-}
 
-/* ==========================================================================
-   [반응형 타겟] 태블릿 및 모바일 디바이스 지원 (최대 768px 이하)
-   ========================================================================== */
-@media screen and (max-width: 768px) {
     
     /* 1. 서브페이지 컨텐츠 패딩 조절 */
     .sub-content-wrap {
@@ -1372,27 +1370,7 @@ footer {
         font-size: 0.88rem !important;
         line-height: 1.6;
     }
-}
 
-/* ==========================================================================
-   [반응형 타겟] 아주 작은 스마트폰 디바이스 (최대 480px 이하)
-   ========================================================================== */
-@media screen and (max-width: 480px) {
-    .about-hero-title {
-        font-size: 1.65rem !important; /* 더 작은 화면에서 타이틀 줄바꿈 깨짐 방지 */
-    }
-    
-    /* 쪼개진 2분할 버튼(문자/카톡)도 화면이 너무 작아지면 세로로 안전하게 나열 */
-    .btn-group-half {
-        grid-template-columns: 1fr !important;
-        gap: 8px !important;
-    }
-}
-
-/* ==========================================================================
-   [반응형 타겟] 태블릿 및 모바일 디바이스 지원 (최대 768px 이하)
-   ========================================================================== */
-@media screen and (max-width: 768px) {
 
     /* 1. 아코디언 레이아웃 전체 패딩 조절 */
     .faq-accordion-layout {
@@ -1445,9 +1423,20 @@ footer {
 }
 
 /* ==========================================================================
-   [반응형 타겟] 아주 작은 스마트폰 디바이스 (최대 480px 이하)
+   RESPONSIVE — max-width: 480px
    ========================================================================== */
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
+
+    .about-hero-title {
+        font-size: 1.65rem !important; /* 더 작은 화면에서 타이틀 줄바꿈 깨짐 방지 */
+    }
+    
+    /* 쪼개진 2분할 버튼(문자/카톡)도 화면이 너무 작아지면 세로로 안전하게 나열 */
+    .btn-group-half {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+
     .faq-item summary h3 {
         font-size: 0.98rem !important; /* 미니형 스마트폰에서 타이틀 가독성 확보 */
     }

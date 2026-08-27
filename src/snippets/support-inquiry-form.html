@@ -1,0 +1,170 @@
+<div class="container">
+        <main style="
+    max-width:1200px;
+    margin:0 auto;
+    padding:120px 32px;
+    font-family:sans-serif;
+    color:#333;
+">
+    <!-- 타이틀 섹션 -->
+    <section style="margin-bottom:90px;">
+
+        <p style="
+            font-size:0.95rem;
+            letter-spacing:0.08em;
+            color:#9b7b58;
+            margin-bottom:18px;
+            font-weight:600;
+        ">
+            ESTIMATE INQUIRY
+        </p>
+
+        <h1 style="
+            font-size:3rem;
+            font-weight:700;
+            line-height:1.35;
+            color:#111;
+            margin-bottom:35px;
+        ">
+            고객님의 공간에 맞는<br>
+            최적의 난방 솔루션 비용을 산출해 드립니다
+        </h1>
+
+        <div style="
+            width:100px;
+            height:2px;
+            background:#c49a6c;
+            margin-bottom:45px;
+        "></div>
+
+        <p style="
+            font-size:1.08rem;
+            line-height:2;
+            color:#555;
+            max-width:880px;
+            word-break:keep-all;
+        ">
+            현장 도면 유무, 시공 면적, 바닥 마감재 종류에 따라 맞춤형 상세 견적이 가능합니다.
+            <br><br>
+            기본적인 정보를 아래 폼에 입력하여 제출해 주시면, 담당 부서에서 내용을 검토한 후 24시간 이내(영업일 기준)에 유선 연락 또는 견적서를 송부해 드리겠습니다.
+        </p>
+
+    </section>
+
+    <!-- 견적 문의 폼 영역 -->
+    <section style="
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #e8e1d8;
+        padding: 60px 50px;
+    ">
+        <form action="#" method="POST" onsubmit="alert('견적 문의가 정상적으로 접수되었습니다. 빠르게 연락드리겠습니다.'); return false;">
+            
+            <!-- 1. 기본 정보 그룹 -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 25px; border-left: 3px solid #c49a6c; padding-left: 12px;">
+                    기본 인적 사항
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                    <!-- 이름/회사명 -->
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">성함 / 업체명 *</label>
+                        <input type="text" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                    </div>
+                    <!-- 연락처 -->
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">연락처 *</label>
+                        <input type="tel" placeholder="010-0000-0000" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                    </div>
+                </div>
+
+                <div style="margin-top: 24px;">
+                    <!-- 이메일 -->
+                    <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">이메일 주소 *</label>
+                    <input type="email" placeholder="example@email.com" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                </div>
+            </div>
+
+            <!-- 2. 시공 현장 정보 그룹 -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 25px; border-left: 3px solid #c49a6c; padding-left: 12px;">
+                    시공 현장 정보
+                </h3>
+
+                <div style="margin-bottom: 24px;">
+                    <!-- 현장 주소 -->
+                    <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">시공 예정지 주소 *</label>
+                    <input type="text" placeholder="예: 서울시 강남구 또는 대략적인 지역" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                    <!-- 시공 면적 -->
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">시공 예정 면적 (평 또는 ㎡) *</label>
+                        <input type="text" placeholder="예: 30평형 / 100㎡" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.3s;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'">
+                    </div>
+                    <!-- 마감재 선택 -->
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px;">예정된 바닥 마감재</label>
+                        <select style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 0.95rem; color:#555; box-sizing: border-box; outline: none; background:#fff;">
+                            <option value="">선택해 주세요</option>
+                            <option value="강마루/강화마루">강마루 / 강화마루</option>
+                            <option value="데코타일/SPC마루">데코타일 / SPC마루</option>
+                            <option value="타일/대리석">타일 / 대리석</option>
+                            <option value="기타/미정">기타 / 미정</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 상세 문의 내용 -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 25px; border-left: 3px solid #c49a6c; padding-left: 12px;">
+                    문의 사항 및 특이사항
+                </h3>
+                <div>
+                    <textarea rows="6" placeholder="현장 층수, 도면 보유 여부, 기존 바닥 상태 등 참고할 만한 내용을 자유롭게 작성해 주세요." style="width: 100%; padding: 16px; border: 1px solid #ddd; font-size: 0.95rem; font-family: sans-serif; box-sizing: border-box; outline: none; resize: vertical; line-height: 1.6;" onfocus="this.style.border='1px solid #9b7b58'" onblur="this.style.border='1px solid #ddd'"></textarea>
+                </div>
+            </div>
+
+            <!-- 4. 개인정보 수의동의 및 제출 -->
+            <div style="margin-bottom: 45px; background: #fcfbf9; padding: 20px; border: 1px solid #f4efe9;">
+                <label style="display: flex; align-items: center; cursor: pointer; font-size: 0.9rem; color: #555;">
+                    <input type="checkbox" required style="margin-right: 10px; width: 16px; height: 16px; accent-color: #9b7b58;">
+                    <span>(필수) 견적 상담을 위한 개인정보 수집 및 이용에 동의합니다.</span>
+                </label>
+            </div>
+
+            <!-- 제출 버튼 -->
+            <button type="submit" style="
+                width: 100%;
+                background: #9b7b58;
+                color: #fff;
+                font-weight: 700;
+                font-size: 1.1rem;
+                padding: 22px;
+                border: none;
+                cursor: pointer;
+                transition: background 0.3s;
+            "
+            onmouseover="this.style.background='#826547';"
+            onmouseout="this.style.background='#9b7b58';">
+                온라인 견적 문의 신청하기
+            </button>
+
+        </form>
+    </section>
+</main>
+
+        <!--
+        <aside>
+            <h3>사이드바</h3>
+            <ul style="margin-top: 15px;">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">문의하기</a></li>
+            </ul>
+        </aside>
+        -->
+    </div>

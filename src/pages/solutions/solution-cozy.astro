@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/solutions-cozy.html?raw';
+---
+<BaseLayout
+  title={"DEPIDA COZY 독채·풀빌라 프리미엄 난방 솔루션 | (주)정진테크"}
+  description={"프라이빗 풀빌라, 감성 독채 펜션, 글램핑 시설을 위한 DEPIDA COZY 전기온돌 시스템. 배관 없는 건식 구조 기술로 겨울철 동파 리스크를 완벽히 해결하고 스마트 앱 원격 제어 및 상한 락(Lock) 기능으로 상업 숙소 자산 가치와 운영 효율을 극대화합니다."}
+  keywords={"DEPIDA COZY, 데피다 코지, 정진테크 전기온돌, 풀빌라 난방, 독채펜션 전기난방, 글램핑 바닥난방, 동파방지 난방, 스마트 원격 제어 난방, B2B 난방"}
+  ogDescription={"겨울 성수기 동파 노이로제와 난방비 폭탄 해결. 스마트 원격 제어가 결합된 고효율 건식 전기온돌 시스템, DEPIDA COZY를 만나보세요."}
+  ogImage={"https://depida.com/thumb.png"}
+  extraStyles={["/assets/css/solutions.css"]}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/support-faq.html?raw';
+---
+<BaseLayout
+  title={"DEPIDA 자가진단 FAQ | 전기온돌 온도조절기 및 에러코드 문제 해결"}
+  description={"(주)정진테크 DEPIDA(데피다) 전기온돌 시스템의 자주 묻는 질문과 자가진단 가이드입니다. 온도조절기 전원, 편난방 현상, 에러코드(E1, E2) 조치, 차단기 내려감 등 현장에서 발생하는 문제의 간단한 조치법을 확인하세요."}
+  keywords={"DEPIDA FAQ, 데피다 에러코드, 전기온돌 차단기, 온도조절기 고장, 편난방 해결, 전기온돌 AS, 정진테크 자가진단"}
+  ogDescription={"DEPIDA 시스템 이용 중 문제가 발생하셨나요? 온도조절기 전원, 에러코드 조치, 차단기 내려감 등 대표적인 현상의 간단한 조치법을 확인해 보세요."}
+  ogImage={"https://depida.com/thumb.png"}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

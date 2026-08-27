@@ -1,0 +1,150 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('cases');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+
+// 갤러리 모달용 데이터: gallery가 비어있으면 대표 이미지로 대체
+const galleryData = d.items.map((item) => ({
+  title: item.title,
+  images: item.gallery.length ? item.gallery : [item.image],
+}));
+---
+<BaseLayout
+  title={d.title}
+  description={d.seoDescription}
+  keywords={d.keywords}
+  ogImage={d.ogImage}
+  extraStyles={["/assets/css/gallery.css"]}
+>
+  <div class="container">
+    <main style="max-width:1200px; margin:0 auto; padding:120px 32px; font-family:sans-serif; color:#333;">
+      <!-- 인트로 -->
+      <section style="margin-bottom:90px;">
+        <p style="font-size:0.95rem; letter-spacing:0.08em; color:#9b7b58; margin-bottom:18px; font-weight:600;">
+          {d.label}
+        </p>
+        <h1 style="font-size:3rem; font-weight:700; line-height:1.35; color:#111; margin-bottom:35px;">
+          {d.heading}
+        </h1>
+        <div style="width:100px; height:2px; background:#c49a6c; margin-bottom:45px;"></div>
+        <p style="font-size:1.08rem; line-height:2; color:#555; max-width:880px; word-break:keep-all;">
+          {d.intro}
+        </p>
+      </section>
+
+      <!-- 특징 카드 -->
+      {d.features.length > 0 && (
+        <section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:40px; margin-bottom:120px;">
+          {d.features.map((f) => (
+            <div style="background:#fcfaf7; border-left:4px solid #c49a6c; padding:32px 28px;">
+              <h4 style="font-size:1.15rem; color:#111; margin:0 0 12px 0; font-weight:700;">{f.title}</h4>
+              <p style="font-size:0.95rem; color:#666; line-height:1.7; margin:0; word-break:keep-all;">{f.body}</p>
+            </div>
+          ))}
+        </section>
+      )}
+
+      <!-- 사례 목록 헤더 -->
+      <div style="margin-bottom:40px;">
+        <h2 style="font-size:1.8rem; font-weight:700; color:#111; margin-bottom:10px;">주요 시공 사례</h2>
+        <p style="font-size:0.95rem; color:#777; margin:0;">사진을 클릭하시면 상세 시공 과정을 보실 수 있습니다.</p>
+      </div>
+
+      <!-- 사례 카드 -->
+      <section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:32px;">
+        {d.items.map((item, i) => (
+          <div class="depida-card" style={`--card-index: ${i};`} data-gallery-index={i}>
+            <div style="width:100%; height:220px; background:#e8e1d8; overflow:hidden;">
+              <img src={item.image} alt={item.title} style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <div style="padding:32px 30px;">
+              <p class="depida-card-label">{item.label}</p>
+              <h3 class="depida-card-title">{item.title}</h3>
+              <div class="depida-card-info">
+                {item.date && <p><span>시공일자</span> : {item.date}</p>}
+                {item.address && <p><span>주소</span> : {item.address}</p>}
+                {item.scale && <p><span>시공규모</span> : {item.scale}</p>}
+                {item.note && <p><span>주요특징</span> : {item.note}</p>}
+              </div>
+              <div class="depida-card-more">시공 갤러리 보기 +</div>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <!-- 갤러리 모달 -->
+      <div id="depidaModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center; user-select:none; box-sizing:border-box;">
+        <span id="depidaClose" style="position:absolute; top:30px; right:40px; color:#fff; font-size:40px; font-weight:300; cursor:pointer; z-index:10000;">&times;</span>
+        <div id="depidaPrev" style="position:absolute; left:30px; color:#fff; font-size:36px; cursor:pointer; padding:20px; font-weight:bold; z-index:10000;">❮</div>
+        <div style="width:85%; height:80vh; max-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+          <img id="modalImg" src="" alt="시공상세" style="max-width:100%; max-height:calc(100% - 80px); object-fit:contain; border:1px solid #444; box-sizing:border-box;" />
+          <div id="modalCaption" style="color:#fff; margin-top:15px; font-size:1.1rem; font-weight:600; line-height:1.2;"></div>
+          <div id="modalCounter" style="color:#c49a6c; margin-top:6px; font-size:0.9rem; letter-spacing:0.1em;"></div>
+        </div>
+        <div id="depidaNext" style="position:absolute; right:30px; color:#fff; font-size:36px; cursor:pointer; padding:20px; font-weight:bold; z-index:10000;">❯</div>
+      </div>
+    </main>
+  </div>
+
+  <script is:inline define:vars={{ galleryData }}>
+    (function () {
+      let currentGroup = 0;
+      let currentIdx = 0;
+      const modal = document.getElementById('depidaModal');
+
+      function updateModal() {
+        const group = galleryData[currentGroup];
+        document.getElementById('modalImg').src = group.images[currentIdx];
+        document.getElementById('modalCaption').innerText = group.title;
+        document.getElementById('modalCounter').innerText = `${currentIdx + 1} / ${group.images.length}`;
+      }
+      function openGallery(groupIndex) {
+        currentGroup = groupIndex;
+        currentIdx = 0;
+        updateModal();
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+      function closeGallery() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      function nextImg() {
+        const group = galleryData[currentGroup];
+        currentIdx = (currentIdx + 1) % group.images.length;
+        updateModal();
+      }
+      function prevImg() {
+        const group = galleryData[currentGroup];
+        currentIdx = (currentIdx - 1 + group.images.length) % group.images.length;
+        updateModal();
+      }
+
+      document.querySelectorAll('.depida-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          openGallery(Number(card.dataset.galleryIndex));
+        });
+      });
+      document.getElementById('depidaClose').addEventListener('click', closeGallery);
+      document.getElementById('depidaPrev').addEventListener('click', prevImg);
+      document.getElementById('depidaNext').addEventListener('click', nextImg);
+      document.addEventListener('keydown', function (e) {
+        if (modal.style.display === 'flex') {
+          if (e.key === 'Escape') closeGallery();
+          if (e.key === 'ArrowRight') nextImg();
+          if (e.key === 'ArrowLeft') prevImg();
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

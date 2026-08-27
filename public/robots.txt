@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://depida.com/sitemap.xml

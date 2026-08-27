@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/about-vision.html?raw';
+---
+<BaseLayout
+  title={"DEPIDA 기업 이념 · 비전 | (주)정진테크 산업용 전기 온돌 시스템"}
+  description={"(주)정진테크 DEPIDA(데피다)의 경영 철학과 미래 비전입니다. 고객을 위한 가치창조와 인간 중심의 설계를 바탕으로 호텔, 리조트, 풀빌라, 스파 등 상업시설에 지속가능하고 고효율인 전기 바닥 난방 솔루션을 제시합니다."}
+  keywords={"DEPIDA 기업이념, 데피다 비전, 정진테크 철학, 산업용 전기온돌 가치, 상업시설 난방비전, B2B 바닥난방"}
+  ogDescription={"고객을 위한 가치창조, 인간을 위한 가치확보. 상업 공간의 운영 효율과 지속가능성을 높이는 DEPIDA의 핵심 가치를 소개합니다."}
+  ogImage={"https://depida.com/thumb.png"}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

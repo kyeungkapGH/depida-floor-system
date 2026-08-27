@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/about-index.html?raw';
+---
+<BaseLayout
+  title={"DEPIDA 브랜드 스토리 | (주)정진테크 산업용 전기 온돌 시스템"}
+  description={"공간을 데우는 (주)정진테크의 산업용 전기온돌 브랜드 DEPIDA(데피다)를 소개합니다. 특허받은 삼축꼬임 가열전선 기술로 호텔, 리조트, 풀빌라에 고효율 바닥 난방 솔루션을 제공합니다."}
+  keywords={"DEPIDA 소개, 데피다 브랜드스토리, 정진테크, 삼축꼬임 가열전선, 산업용 전기온돌, B2B 난방, 전기 바닥 난방"}
+  ogDescription={"특허받은 삼축꼬임 가열전선 기술로 상업 공간의 가치를 높이는 DEPIDA 초절전 전기 온돌 난방 솔루션."}
+  ogImage={"https://depida.com/thumb.png"}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

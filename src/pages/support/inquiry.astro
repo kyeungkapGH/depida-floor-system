@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/support-inquiry.html?raw';
+---
+<BaseLayout
+  title={"DEPIDA 맞춤 견적 문의 | 전기온돌 시공 비용 및 도면 상담"}
+  description={"(주)정진테크 DEPIDA(데피다) 전기온돌 시스템 시공 견적 및 비용 문의 안내입니다. 복잡한 서식 없이 도면이나 현장 사진만 전송하시면 전담 엔지니어가 평수 및 바닥 마감재별 맞춤형 난방 시공 견적을 신속하게 상담해 드립니다."}
+  keywords={"DEPIDA 견적, 전기온돌 시공비용, 바닥난방 견적, 전기난방 평당비용, 정진테크 도면상담, 풀빌라 난방공사, 호텔 난방견적"}
+  ogDescription={"복잡한 양식 없이 전화 한 통으로 끝나는 맞춤 견적! 도면이나 현장 사진을 문자/카톡으로 보내시면 전담 엔지니어가 빠르게 견적을 안내해 드립니다."}
+  ogImage={"https://depida.com/thumb.png"}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

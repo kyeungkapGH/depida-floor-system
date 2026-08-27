@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/solutions-spa.html?raw';
+---
+<BaseLayout
+  title={"DEPIDA SPA 찜질방·사우나·에스테틱 고온 방수 난방 솔루션 | (주)정진테크"}
+  description={"초고온 유지와 100% 완전 방수가 필수적인 찜질방, 스파, 에스테틱, 핫요가 스튜디오를 위한 DEPIDA SPA 온열 제어 시스템. 스마트 인버터 기술로 상업용 전기세 고지서를 혁신적으로 절감하고 누전 리스크를 완벽히 차단합니다."}
+  keywords={"DEPIDA SPA, 데피다 스파, 정진테크 전기온돌, 찜질방 난방, 사우나 시공, 에스테틱 베드 난방, 핫요가 스튜디오 난방, 완전 방수 난방, 원적외선 복사열, 상업용 난방 절전"}
+  ogDescription={"웰니스 공간의 깊이를 더하고, 상업용 난방의 마진을 높이다. 초고온 인버터 제어와 다중 절연 밀봉 기술이 결합된 웰니스 비즈니스 전문 솔루션, DEPIDA SPA."}
+  ogImage={"https://depida.com/thumb.png"}
+  extraStyles={["/assets/css/solutions.css"]}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

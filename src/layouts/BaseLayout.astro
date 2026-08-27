@@ -1,0 +1,71 @@
+---
+import Analytics from '../components/Analytics.astro';
+import NaverAnalytics from '../components/NaverAnalytics.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// 모든 페이지 공통 레이아웃. SEO 메타는 props로 주입.
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonical?: string;
+  ogType?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  /** cases 갤러리처럼 추가 CSS가 필요한 페이지용 */
+  extraStyles?: string[];
+}
+
+const {
+  title,
+  description,
+  keywords,
+  canonical = new URL(Astro.url.pathname, Astro.site).href,
+  ogType = 'website',
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = 'https://depida.com/thumb.png',
+  extraStyles = [],
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <Analytics />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="DEPIDA" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    {extraStyles.map((href) => <link rel="stylesheet" href={href} />)}
+    <script defer src="/_vercel/insights/script.js" is:inline></script>
+  </head>
+
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+
+    <script src="/assets/js/script.js" is:inline></script>
+    <NaverAnalytics />
+  </body>
+</html>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/support-manuals.html?raw';
+---
+<BaseLayout
+  title={"DEPIDA 기술자료실 | 전기온돌 표준 시방서 및 조절기 매뉴얼 다운로드"}
+  description={"(주)정진테크 DEPIDA(데피다) 전기온돌 난방 시스템의 공식 기술 자료실입니다. 설계 반영용 표준 공사 시방서, 전기 설비 규격서, 스마트 온도조절기 사용설명서 및 제품 종합 카탈로그 PDF 버전을 실시간으로 확인하고 다운로드하실 수 있습니다."}
+  keywords={"DEPIDA 시방서, 전기온돌 카탈로그, 온도조절기 매뉴얼, 정진테크 기술자료, 바닥난방 시방서, 난방 사용설명서, 데피다 PDF"}
+  ogDescription={"안전하고 완벽한 시공을 위한 DEPIDA 전기온돌 표준 시방서, 스마트 조절기 사용설명서 및 종합 카탈로그 PDF 자료를 한눈에 확인하세요."}
+  ogImage={"./thumb.png"}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

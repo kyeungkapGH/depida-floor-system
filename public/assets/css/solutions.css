@@ -1,0 +1,477 @@
+@charset "UTF-8";
+
+/* ==========================================
+   HIGH-END VISUAL MAGAZINE THEME SYSTEM
+   ========================================== */
+
+/* [THEME 01. COZY] 고급스러운 무덤덤함을 주는 다크 럭셔리와 오렌지 코퍼 */
+:root, .magazine-layout.theme-cozy {
+    --mg-black: #0f1115;          /* 다크 럭셔리 블랙 */
+    --mg-accent: #e25c27;         /* 발열 선이 연상되는 하이엔드 오렌지 코퍼 */
+    --mg-text-main: #191f28;       /* 가독성이 뚜렷한 다크 슬레이트 */
+    --mg-text-sub: #5f6670;        /* 세련된 무드를 연출하는 미드 그레이 */
+    --mg-border-thin: #e2dfda;     /* 메인 배경 위에서 은은하게 구획을 긋는 선 */
+}
+
+/* [THEME 02. PRO] 빌딩 시스템의 신뢰감과 묵직함을 주는 딥 네이비와 테크 블루 */
+.magazine-layout.theme-pro {
+    --mg-black: #11161d;          /* 다크 딥 네이비 블랙 */
+    --mg-accent: #1e3a5f;         /* 스마트 인프라 및 행정 조달 비즈니스를 상징하는 테크 블루 */
+    --mg-text-main: #1c222b;       /* 정돈되고 가독성 높은 차콜 네이비 슬레이트 */
+    --mg-text-sub: #5f6874;        /* 이성적이고 차분한 슬레이트 그레이 */
+    --mg-border-thin: #e2e7ec;     /* 깔끔한 느낌의 아키텍처 라이트 블루 그레이 */
+}
+
+/* [THEME 03. SPA] 온열 스파의 고급스러운 무드를 상징하는 골드 샌드 브라운 */
+.magazine-layout.theme-spa {
+    --mg-black: #1a1512;          /* cozy 감성을 잃지 않는 은은하고 묵직한 딥 브라운 차콜 */
+    --mg-accent: #b58d63;         /* 온열 스파의 고급스러운 무드를 상징하는 골드 샌드 브라운 */
+    --mg-text-main: #221c18;       /* 가독성이 극대화된 딥 미드 슬레이트 */
+    --mg-text-sub: #6b625b;        /* 분위기를 부드럽게 감싸는 웜 그레이 */
+    --mg-border-thin: #e6e0da;     /* 미니멀하면서도 따뜻한 톤의 경계선 */
+}
+
+/* [THEME 04. STAY] 편안한 머무름을 상징하는 정갈한 포레스트 그린 */
+.magazine-layout.theme-stay {
+    --mg-black: #12161a;          /* 한 톤 부드러워진 차콜 다크 블랙 */
+    --mg-accent: #2e5a44;         /* 편안한 머무름을 상징하는 정갈한 포레스트 그린 */
+    --mg-text-main: #191f28;       /* 가독성이 높은 슬레이트 다크 */
+    --mg-text-sub: #5f6670;        /* 부드러운 미드 그레이 */
+    --mg-border-thin: #e2dfda;     /* 미니멀한 경계선 */
+}
+
+
+/* 00. COMMON STYLE EXTENSION */
+.magazine-layout {
+    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+    color: var(--mg-text-main);
+    word-break: keep-all;
+    padding-top: 40px;
+}
+
+/* 섹션 공통 구분 번호 */
+.sec-num {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--mg-accent);
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* 이미지 공통 모던 호버 이펙트 */
+.mg-hero-img-box img, 
+.mg-side-img-box img, 
+.tech-thumb-img img, 
+.panorama-img-frame img, 
+.card-img-area img {
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.mg-hero-img-box:hover img, 
+.tech-thumb-img:hover img, 
+.panorama-img-frame:hover img,
+.card-img-area:hover img {
+    transform: scale(1.04); /* 마우스 올렸을 때 고급스럽게 확대되는 효과 */
+}
+
+/* ==========================================
+   01. HERO SECTION (인테리어 매거진 표지 디자인)
+   ========================================== */
+.mg-hero-section {
+    margin-bottom: 120px;
+}
+
+.mg-meta-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--mg-black);
+    padding-bottom: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.mg-line-code {
+    color: var(--mg-accent);
+}
+
+.mg-title-group {
+    margin: 50px 0;
+}
+
+.mg-main-title {
+    font-size: 84px;
+    line-height: 0.9;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    margin-bottom: 25px;
+}
+
+.mg-main-title strong {
+    font-weight: 900;
+    color: var(--mg-accent);
+}
+
+.mg-hero-sub {
+    font-size: 20px;
+    color: var(--mg-text-sub);
+    font-weight: 500;
+}
+
+/* 히어로 그리드 오버랩 */
+.mg-hero-grid {
+    display: grid;
+    grid-template-columns: 6.5fr 3.5fr;
+    gap: 40px;
+    align-items: flex-end;
+}
+
+.mg-hero-img-box {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--mg-black);
+}
+
+.mg-hero-img-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 480px;
+    object-fit: cover;
+}
+
+.img-overlay-tag {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--mg-black);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 14px;
+    letter-spacing: 0.1em;
+}
+
+.mg-hero-abstract {
+    padding-bottom: 20px;
+}
+
+.abstract-line {
+    width: 40px;
+    height: 4px;
+    background-color: var(--mg-black);
+    margin-bottom: 20px;
+}
+
+.mg-hero-abstract p {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--mg-text-sub);
+}
+
+/* ==========================================
+   02. BLACK SECTION (다크 반전 + 사이드 픽쳐 매칭)
+   ========================================== */
+.mg-black-section {
+    background-color: var(--mg-black);
+    color: #ffffff;
+    margin: 0 calc(-50vw + 50%);
+    width: 100vw;
+    padding: 100px 0;
+    box-sizing: border-box;
+}
+
+.mg-black-section .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 4.5fr 5.5fr;
+    gap: 60px;
+}
+
+.mg-section-header h2 {
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.3;
+}
+
+.mg-section-header h2 strong { font-weight: 800; }
+.mg-section-header.light-text h2 { color: #ffffff; }
+.mg-section-header.light-text h2 strong { color: var(--mg-accent); }
+.mg-section-header.light-text p { color: #8a93a0; font-size: 15.5px; margin-top: 15px; margin-bottom: 40px; }
+
+/* 사이드 종횡 세로형 이미지 배치 */
+.mg-side-img-box {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    max-height: 380px;
+    border-inline: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mg-side-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 아카이브 리스트 */
+.mg-archive-list {
+    border-top: 1px solid #2c323b;
+}
+
+.archive-row {
+    display: grid;
+    grid-template-columns: 2fr 3fr 5fr;
+    padding: 26px 0;
+    border-bottom: 1px solid #2c323b;
+    align-items: baseline;
+}
+
+.arch-index { font-size: 12px; font-weight: 700; color: var(--mg-accent); }
+.arch-subject { font-size: 18px; font-weight: 700; color: #ffffff; }
+.arch-desc { font-size: 14.5px; color: #a0aab5; line-height: 1.5; }
+
+/* ==========================================
+   03. ENGINEERING SECTION (기술력 - 상단 사각형 썸네일 추가)
+   ========================================== */
+.mg-tech-section {
+    padding: 120px 0;
+}
+
+.mg-tech-section .mg-section-header {
+    margin-bottom: 60px;
+}
+
+.mg-tech-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.tech-column-item {
+    border-top: 2px solid var(--mg-black);
+    padding-top: 0px;
+}
+
+/* 기술 썸네일 박스 가공 */
+.tech-thumb-img {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 20px;
+    background-color: #ddd;
+}
+
+.tech-thumb-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tech-num-bar {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--mg-text-sub);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tech-num-bar span { color: var(--mg-accent); }
+.tech-column-item h3 { font-size: 19px; font-weight: 300; line-height: 1.4; margin-bottom: 12px; }
+.tech-column-item h3 strong { font-weight: 800; color: var(--mg-black); }
+.tech-column-item p { font-size: 14px; color: var(--mg-text-sub); line-height: 1.65; }
+
+/* ==========================================
+   04. MID PANNER IMAGE (시각 스케일 확장 파노라마)
+   ========================================== */
+.mg-panorama-section {
+    margin: 40px 0 80px 0;
+}
+
+.panorama-img-frame {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.panorama-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.panorama-text-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(15, 17, 21, 0.8), rgba(0,0,0,0.2));
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+.panorama-text-overlay h3 {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+/* ==========================================
+   05. SPACE SECTION (추천 공간 - 이미지 복합형 고급 카드 구조)
+   ========================================== */
+.mg-space-section {
+    padding: 80px 0 120px 0;
+    border-top: 1px solid var(--mg-border-thin);
+}
+
+.space-split-grid {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    gap: 50px;
+}
+
+.space-left-sticky {
+    position: sticky;
+    top: 60px;
+}
+
+.space-left-sticky h2 { font-size: 36px; font-weight: 300; line-height: 1.3; }
+.space-left-sticky h2 strong { font-weight: 800; color: var(--mg-black); }
+.space-left-sticky p { font-size: 15.5px; color: var(--mg-text-sub); margin-top: 15px; }
+
+.space-right-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* 가로 분할 형태의 프리미엄 매거진 타일형 카드 */
+.space-card-with-img {
+    display: grid;
+    grid-template-columns: 3.5fr 6.5fr;
+    background-color: #ffffff;
+    border: 1px solid var(--mg-border-thin);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+    transition: all 0.3s ease;
+}
+
+.space-card-with-img:hover {
+    border-color: var(--mg-black);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.card-img-area {
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    overflow: hidden;
+}
+
+.card-img-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-text-area {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-text-area h4 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--mg-black);
+    margin-bottom: 10px;
+}
+
+.card-text-area p {
+    font-size: 14px;
+    color: var(--mg-text-sub);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   06. PREMIUM CTA PIECE (B2B 하이엔드 피날레 보드)
+   ========================================== */
+.mg-cta-section {
+    margin-bottom: 120px;
+}
+
+.cta-inner-frame {
+    background-color: var(--mg-black);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px;
+}
+
+/* 감각적으로 배경이미지를 대체하기 위한 블러 레이어 */
+.cta-bg-blur {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('./images/cozy-cta-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15; /* 은은하게 뒤에 사진이 깔리도록 유도 */
+    filter: grayscale(100%);
+    z-index: 1;
+}
+
+.cta-content-layer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.cta-tag { font-size: 11px; font-weight: 800; color: var(--mg-accent); letter-spacing: 0.2em; display: block; margin-bottom: 20px; }
+.cta-content-layer h2 { color: #ffffff; font-size: 36px; font-weight: 800; line-height: 1.4; margin-bottom: 15px; }
+.cta-content-layer p { font-size: 16px; color: #a0aab5; margin-bottom: 45px; }
+
+/* 미니멀 버튼 그룹 */
+.cta-btn-group { display: flex; justify-content: center; gap: 15px; }
+.mg-btn { text-decoration: none; font-size: 15px; font-weight: 700; padding: 18px 36px; border-radius: 2px; transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1); }
+.primary-btn { background-color: var(--mg-accent); color: #ffffff; display: inline-flex; align-items: center; gap: 8px; }
+.primary-btn:hover { filter: brightness(1.15); transform: translateY(-2px); } /* 개별 헥사코드 호버 대신, 모든 테마 톤에 자연스럽게 대응하는 브라이트니스 필터 가공 */
+.secondary-btn { background-color: transparent; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); }
+.secondary-btn:hover { background-color: #ffffff; color: var(--mg-black); border-color: #ffffff; }
+
+/* ==========================================
+   RESPONSIVE DESIGN (반응형 모바일 미디어 쿼리)
+   ========================================== */
+@media (max-width: 1200px) {
+    .mg-black-section .section-container { grid-template-columns: 1fr; gap: 40px; }
+    .mg-side-img-box { max-height: 280px; }
+    .space-split-grid { grid-template-columns: 1fr; gap: 30px; }
+    .space-left-sticky { position: static; }
+}
+
+@media (max-width: 992px) {
+    .mg-hero-grid { grid-template-columns: 1fr; }
+    .mg-tech-columns { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .panorama-text-overlay { padding: 0 30px; }
+    .panorama-text-overlay h3 { font-size: 20px; }
+}
+
+@media (max-width: 768px) {
+    .mg-main-title { font-size: 54px; }
+    .archive-row { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+    .mg-tech-columns { grid-template-columns: 1fr; }
+    .space-card-with-img { grid-template-columns: 1fr; }
+    .card-img-area { min-height: 200px; }
+    .cta-content-layer h2 { font-size: 24px; }
+    .cta-btn-group { flex-direction: column; }
+    .mg-btn { width: 100%; text-align: center; box-sizing: border-box; justify-content: center; }
+}

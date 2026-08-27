@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/about-certificates.html?raw';
+---
+<BaseLayout
+  title={"DEPIDA 특허 및 인증 | (주)정진테크 산업용 전기 온돌 시스템"}
+  description={"(주)정진테크 DEPIDA(데피다)의 검증된 기술력과 특허, 인증 내역입니다. 삼축꼬임 가열선 구조 특허, KC 전기안전인증, 공인 시험성적서를 통해 호텔, 리조트, 스파에 가장 안전하고 효율적인 B2B 난방 인프라를 보장합니다."}
+  keywords={"DEPIDA 특허, 데피다 인증, 정진테크 기술력, 삼축꼬임 가열선 특허, 전기온돌 안전인증, KC인증 난방, 전기난방 시험성적서"}
+  ogDescription={"삼축꼬임 가열선 구조 특허부터 전기안전인증까지. 검증된 데이터와 기술력으로 상업 공간의 난방 안전성과 신뢰성을 증명합니다."}
+  ogImage={"https://depida.com/thumb.png"}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

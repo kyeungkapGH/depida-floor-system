@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/support-inquiry-form.html?raw';
+---
+<BaseLayout
+  title={"공간을 데우다, 마음을 DEPIDA"}
+  description={"공간을 데우다, 마음을 DEPIDA"}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

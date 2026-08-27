@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../snippets/cases-installation-method.html?raw';
+---
+<BaseLayout
+  title={"정밀 설계 및 정석 시공 프로세스 | DEPIDA"}
+  description={"단열재 시공부터 히터 배열, 다중 절연 결선, 스마트 조절기 연동까지 엄격한 감리 기준에 맞춘 DEPIDA의 7단계 무결점 바닥난방 시공 공정을 공개합니다."}
+  keywords={"DEPIDA 시공방법, 바닥난방 시공과정, 전기온돌 설치공정, 와이어메쉬 시공, 히터 결선, 바닥 평탄화, 정진테크"}
+  ogDescription={"보이지 않는 바닥 속 기술일수록 더 완벽하게. 사전 현장 진단부터 최종 열화상 테스트까지, 전문 엔지니어 그룹의 책임감 있는 정석 시공을 약속합니다."}
+  ogImage={"https://depida.com/assets/images/og-construction.jpg"}
+>
+  <Fragment set:html={content} />
+</BaseLayout>
